@@ -24,8 +24,9 @@
     align-items: center;
     font-size: 1.4rem;
 }
-.number-select{
+.number--select{
     background-color: red;
+    color: white;
 }
 
 .card-container{
@@ -35,24 +36,25 @@ gap: 1rem;
 }
 .card{
     width: 340px;
-    height: 400px;
+    height: 280px;
     background-color: rgb(211, 0, 0);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    position: relative;
     &__title{
-     font-size: 3rem;
-     font-weight: bold;
-     color: white;
-     letter-spacing: 30px;
-     padding-left: 2rem;
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 30px;
+        padding-left: 2rem;
     }
     &__number-container{
         display: grid;
         grid-template-columns: repeat(5, 60px);
-
+        
     }
     &__number{
         height: 60px;
@@ -63,4 +65,21 @@ gap: 1rem;
         background-color: white;
         color: rgb(211, 0, 0);
     }
+    &__number--select{
+        background-color: yellow;
+    }
 }
+
+.card__first::after{
+    content: '';
+    position: absolute;
+    width: 340px;
+    height: 280px;
+    top: 0;
+    left: 0;
+    border-radius: 1rem;
+    background-color: green;
+}
+
+
+

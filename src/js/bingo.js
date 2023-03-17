@@ -1,50 +1,46 @@
-const bingoNumbers = document.getElementById('bingo-numbers');
-const youCard = document.getElementById('you-card');
-const pcCard = document.getElementById('pc-card');
+import { aleatoryNumber } from "./utils.js";
 
-const numbersBingo = [];
+const bingoNumbers = document.getElementById("bingo-numbers");
+
+const numbersBingo = Array(99)
+  .fill()
+  .map((_, index) => index + 1);
 
 const createBingo = () => {
   const fragment = document.createDocumentFragment();
-
-  for (let index = 1; index < 100; index++) {
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('number');
-    cardElement.textContent = index;
-    cardElement.dataset.number = index;
+  numbersBingo.forEach((value) => {
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("number");
+    cardElement.textContent = value;
     fragment.append(cardElement);
-    numbersBingo.push(index);
-  }
+  });
+
   bingoNumbers.append(fragment);
 };
 
-const createCard = () => {
+const generateNumbersCard = () => {
+  const newNumbers = [];
+  while (newNumbers.length < 15) {
+    const randomNumbersCard = aleatoryNumber();
+    if (!newNumbers.includes(randomNumbersCard)) {
+      newNumbers.push(randomNumbersCard);
+    }
+  }
+  return newNumbers;
+};
+
+const createCard = (card) => {
   const fragment = document.createDocumentFragment();
-
-  for (let index = 1; index < 26; index++) {
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('card__number', 'number');
-
-    const randomNumber = Math.floor(Math.random() * numbersBingo.length + 1);
-    numbersBingo[randomNumber];
-    cardElement.textContent = numbersBingo[randomNumber];
-    numbersBingo.splice(randomNumber, 1);
+  const cardNumbers = generateNumbersCard();
+  cardNumbers.forEach((value) => {
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card__number", "number");
+    cardElement.textContent = value;
+    cardElement.dataset.number = value;
 
     fragment.append(cardElement);
-  }
-  youCard.append(fragment);
-  for (let index = 1; index < 26; index++) {
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('card__number', 'number');
-
-    const randomNumber = Math.floor(Math.random() * numbersBingo.length + 1);
-    numbersBingo[randomNumber];
-    cardElement.textContent = numbersBingo[randomNumber];
-    numbersBingo.splice(randomNumber, 1);
-
-    fragment.append(cardElement);
-  }
-  pcCard.append(fragment);
+  });
+  card.append(fragment);
 };
 
 export { createBingo, createCard };
