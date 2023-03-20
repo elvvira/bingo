@@ -1,6 +1,6 @@
-import { aleatoryNumber } from "./utils.js";
+import { aleatoryNumber } from './utils.js';
 
-const bingoNumbers = document.getElementById("bingo-numbers");
+const bingoNumbers = document.getElementById('bingo-numbers');
 
 const numbersBingo = Array(99)
   .fill()
@@ -8,9 +8,9 @@ const numbersBingo = Array(99)
 
 const createBingo = () => {
   const fragment = document.createDocumentFragment();
-  numbersBingo.forEach((value) => {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("number");
+  numbersBingo.forEach(value => {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('number');
     cardElement.textContent = value;
     fragment.append(cardElement);
   });
@@ -29,12 +29,12 @@ const generateNumbersCard = () => {
   return newNumbers;
 };
 
-const createCard = (card) => {
+const createCard = card => {
   const fragment = document.createDocumentFragment();
   const cardNumbers = generateNumbersCard();
-  cardNumbers.forEach((value) => {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card__number", "number");
+  cardNumbers.forEach(value => {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card__number', 'number');
     cardElement.textContent = value;
     cardElement.dataset.number = value;
 

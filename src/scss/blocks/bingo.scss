@@ -69,9 +69,14 @@ gap: 1rem;
         background-color: yellow;
     }
 }
-
-.card__first::after{
-    content: '';
+.card__win{
+    display: none;
+}
+.card__lose{
+    display: none;
+}
+.card__win--show{
+    display: block;
     position: absolute;
     width: 340px;
     height: 280px;
@@ -79,7 +84,31 @@ gap: 1rem;
     left: 0;
     border-radius: 1rem;
     background-color: green;
+    border: 5px solid yellow;
 }
-
-
+.card__lose--show{
+    display: block;
+    position: absolute;
+    width: 340px;
+    height: 280px;
+    top: 0;
+    left: 0;
+    border-radius: 1rem;
+    background-color: white;
+    border: 5px solid red;
+}
+.final__title{
+    position: absolute;
+    z-index: 1;
+    font-size: 2rem;
+    left: 55px;
+    top: 80px;
+    font-weight: bold;
+}
+.win__title{
+    color: yellow;
+}
+.lose__title{
+    color: red;
+}
 

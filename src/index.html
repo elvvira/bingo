@@ -11,7 +11,9 @@
   <body>
     <main class="main">
       <div>
-        <button id="button" class="button">start game!</button>
+        <button id="button" class="button button-restart button">
+          start game!
+        </button>
       </div>
       <div class="bingo-container">
         <div id="bingo-numbers" class="number-container"></div>
@@ -19,12 +21,17 @@
 
       <div class="card-container">
         <div class="card">
-          <div class="card__first"></div>
+          <div id="card-win" class="card__win">
+            <p class="final__title win__title">¡HAS GANADO!</p>
+          </div>
           <div class="card__title">BINGO</div>
           <div id="you-card" class="card__number-container"></div>
         </div>
 
         <div class="card card__second">
+          <div id="card-lose" class="card__lose">
+            <p class="final__title lose__title">has perdido...</p>
+          </div>
           <div class="card__title">BINGO</div>
           <div id="pc-card" class="card__number-container"></div>
         </div>
